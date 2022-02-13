@@ -1,1 +1,4 @@
-<app-intro></app-intro> <app-game-component></app-game-component>
+<body>
+  <app-intro (playerName)="passPlayerName($event)"></app-intro>
+  <app-game-component [nameInGame]="namePassedToGame"></app-game-component>
+</body>

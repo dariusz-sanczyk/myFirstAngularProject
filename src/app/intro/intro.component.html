@@ -1,9 +1,23 @@
-<h1>Exclusive Snake Game</h1>
+<body *ngIf="visible">
+  <h1 class="title">Exclusive Snake Game</h1>
 
-<form #playerForm="ngForm">
-  <label>Player name:</label>
-  <input type="text" name="player" ngModel required minlength="3" />
-  <label>E-mail:</label>
-  <input type="email" name="email" ngModel required email />
-</form>
-<button [disabled]="!playerForm.valid">Start game</button>
+  <form class="user_form" #playerForm="ngForm">
+    <label>Player name:</label>
+    <br />
+    <input
+      type="text"
+      name="player"
+      [(ngModel)]="player"
+      required
+      minlength="3"
+    />
+    <br />
+    <label>E-mail:</label>
+    <br />
+    <input type="email" name="email" ngModel required email />
+  </form>
+
+  <button [disabled]="!playerForm.valid" (click)="passPlayerName()">
+    Start Game
+  </button>
+</body>

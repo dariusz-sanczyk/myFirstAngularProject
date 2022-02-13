@@ -1,0 +1,19 @@
+.controls {
+  float: right;
+  text-align: center;
+}
+
+ngx-snake {
+  display: inline-block;
+}
+
+:host {
+  min-height: 500px;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+
+  button {
+    border: 3px, blue;
+  }
+}
