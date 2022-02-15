@@ -1,5 +1,4 @@
 .controls {
-  float: right;
   text-align: center;
 }
 
@@ -16,4 +15,15 @@ ngx-snake {
   button {
     border: 3px, blue;
   }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.game_body {
+  display: flex;
 }

@@ -1,23 +1,42 @@
 <body *ngIf="visible">
   <h1 class="title">Exclusive Snake Game</h1>
 
-  <form class="user_form" #playerForm="ngForm">
+  <form
+    class="user_form"
+    #playerForm="ngForm"
+    (submit)="verify(playerForm.form)"
+  >
     <label>Player name:</label>
     <br />
     <input
       type="text"
       name="player"
       [(ngModel)]="player"
+      #playerModel="ngModel"
+      ngModel
       required
       minlength="3"
     />
+    <p *ngIf="playerModel.touched && !playerModel.valid">This is required</p>
     <br />
     <label>E-mail:</label>
     <br />
-    <input type="email" name="email" ngModel required email />
+    <input
+      type="email"
+      name="email"
+      #emailModel="ngModel"
+      ngModel
+      required
+      email
+    />
+    <p *ngIf="emailModel.touched && !emailModel.valid">This is required</p>
   </form>
 
-  <button [disabled]="!playerForm.valid" (click)="passPlayerName()">
+  <button
+    class="button"
+    [disabled]="!playerForm.valid"
+    (click)="passPlayerName(); switchVisibility()"
+  >
     Start Game
   </button>
 </body>

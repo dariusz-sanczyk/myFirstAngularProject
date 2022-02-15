@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-intro',
@@ -8,10 +9,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class IntroComponent implements OnInit {
 
   @Output() public playerName = new EventEmitter<string>()
+  @Output() public switchPage = new EventEmitter<boolean>()  
+
   public player: string = ''
+  public visibility: boolean = false
+
+  switchVisibility () {
+    this.switchPage.emit(this.visibility)
+  }
+
   passPlayerName (){
     this.playerName.emit(this.player)
   }
+
+  public verify(form: FormGroup) {
+    const player = form.value.player;
+    const email = form.value.email;
+    }
 
   buttonTitle:string = "Start game";
 
@@ -21,6 +35,4 @@ export class IntroComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  
 }

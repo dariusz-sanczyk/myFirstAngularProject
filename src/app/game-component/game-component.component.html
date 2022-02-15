@@ -1,43 +1,75 @@
 <div>
-  <h1>Hello {{ nameInGame }}</h1>
-  <h2>Wynik: {{ counter }}</h2>
-  <ngx-snake #game (foodEaten)="onGrow()" (gameOver)="onGameOver()"></ngx-snake>
+  <div>
+    <h1>Hello {{ nameInGame }}</h1>
+    <h1>Game {{ status }}</h1>
 
-  <table class="controls">
-    <tr>
-      <td><button (click)="game.actionStart()">Start</button></td>
-      <td><button (click)="game.actionStop()">Stop</button></td>
-      <td>
-        <button (click)="game.actionReset(); resetCounter()">Reset</button>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><button (click)="game.actionUp()">Up</button></td>
-    </tr>
-    <tr>
-      <td><button (click)="game.actionLeft()">Left</button></td>
-      <td></td>
-      <td><button (click)="game.actionRight()">Right</button></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><button (click)="game.actionDown()">Down</button></td>
-    </tr>
-    <tr style="height: 20px">
-      <td></td>
-    </tr>
-  </table>
+    <h2>Wynik: {{ counter }}</h2>
+    <h2>You wasted this time: {{ display }}</h2>
+  </div>
+  <div class="game_body">
+    <div>
+      <ngx-snake
+        #game
+        (foodEaten)="onGrow()"
+        (gameOver)="onGameOver()"
+      ></ngx-snake>
+    </div>
+    <div class="buttons">
+      <table class="controls">
+        <tr>
+          <td>
+            <button
+              (click)="game.actionStart(); startTimer(); statusHandlerStart()"
+            >
+              Start
+            </button>
+          </td>
+          <td>
+            <button
+              (click)="game.actionStop(); pauseTimer(); statusHandlerStop()"
+            >
+              Stop
+            </button>
+          </td>
+          <td>
+            <button
+              (click)="game.actionReset(); resetCounter(); statusHandlerReady()"
+            >
+              Reset
+            </button>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button (click)="game.actionUp()">Up</button></td>
+        </tr>
+        <tr>
+          <td><button (click)="game.actionLeft()">Left</button></td>
+          <td></td>
+          <td><button (click)="game.actionRight()">Right</button></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button (click)="game.actionDown()">Down</button></td>
+        </tr>
+        <tr style="height: 20px">
+          <td></td>
+        </tr>
+      </table>
 
-  <button>Exit game</button>
+      <button class="exit_button" (click)="switchVisibility()">
+        Exit game
+      </button>
+    </div>
+  </div>
 </div>
