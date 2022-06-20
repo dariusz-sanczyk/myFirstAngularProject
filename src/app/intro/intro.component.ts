@@ -1,36 +1,36 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, NgModel } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup, FormArray, FormControlName, AbstractControl, ValidationErrors} from '@angular/forms';
 import { Router } from '@angular/router';
 import { StorageService } from '../storage.service';
 
-
+console.log("wwwww")
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss']
 })
-export class IntroComponent {
+export class IntroComponent implements OnInit  {
 
   public constructor(private _router: Router,
-     private _storage: StorageService) { }
+     private _storage: StorageService,
+     private fb: FormBuilder) { }
 
+  public introForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      code: ['', [Validators.required, Validators.minLength(5)]]
+      
+    });
 
-  public verify(form: FormGroup, playerModel: NgModel) : void {
+  public submit(form: FormGroup) {
     
-    const name = form.value.player
-    console.log(playerModel)
+    const name = form.value.name
 
-    this._storage.storeName(name);
-    }
+    if(form.valid)
+      this._storage.storeName(name);
+      this._router.navigate(['/game']);
+      }
 
-  buttonTitle:string = "Start game";
+  ngOnInit(): void {
 
- 
-  
-  openGame() {
-	
-    this._router.navigate(['/game']);
-
-  } 
-
+  }
 }

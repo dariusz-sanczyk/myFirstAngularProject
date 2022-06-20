@@ -2,36 +2,25 @@
   <h1 class="title">Exclusive Snake Game</h1>
 
   <form
+    id="user_form"
     class="user_form"
-    #playerForm="ngForm"
-    (submit)="verify(playerForm.form, playerModel)"
+    [formGroup]="introForm"
+    (submit)="submit(introForm)"
   >
     <label>Player name:</label>
     <br />
-    <input
-      type="text"
-      name="player"
-      #playerModel="ngModel"
-      ngModel
-      required
-      minlength="3"
-    />
-    <p *ngIf="playerModel.touched && !playerModel.valid">This is required</p>
-    <br />
-    <label>E-mail:</label>
-    <br />
-    <input
-      type="email"
-      name="email"
-      #emailModel="ngModel"
-      ngModel
-      required
-      email
-    />
-    <p *ngIf="emailModel.touched && !emailModel.valid">This is required</p>
-  </form>
+    <input type="text" formControlName="name" name="name" />
 
-  <button class="button" [disabled]="!playerForm.valid" (click)="openGame()">
-    Start Game
-  </button>
+    <br />
+    <label>Authetiction code:</label>
+    <br />
+    <input type="password" formControlName="code" name="code" />
+  </form>
+  <input
+    form="user_form"
+    class="button"
+    [disabled]="!introForm.valid"
+    type="submit"
+    value="start game"
+  />
 </body>

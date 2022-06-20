@@ -4,15 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StorageService {
-  private _playerName! :string;
+  public _playerName! :string;
 	
   public storeName (name:string) : void {
     this._playerName = name
   };
 
   public readName () {
-	
-      return this._playerName;
-	
+	return this._playerName;
   };
 };
