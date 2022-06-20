@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StorageService } from '../storage.service';
 import { Location } from '@angular/common';
 
+
 @Component({
   selector: 'app-game-component',
   templateUrl: './game-component.component.html',
@@ -15,6 +16,7 @@ export class GameComponentComponent implements OnInit {
   display: any;
   interval: any;
   status: string = 'ready';
+  name: string = ''
 
   
 
@@ -62,17 +64,17 @@ export class GameComponentComponent implements OnInit {
     this.status = 'ready' 
   }
 
-
   constructor(
-    private _router: Router, private _storage: StorageService,
-    private _location: Location ) { }
+    private _storage: StorageService,
+    private _location: Location,
+    ) { }
 
   goBack() {
       this._location.back();
     }
   
   ngOnInit(): void {
-    
+    this.name = this._storage.readName();
   }
 
 }

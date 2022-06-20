@@ -4,6 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StorageService {
+  private _playerName! :string;
+	
+  public storeName (name:string) : void {
+    this._playerName = name
+  };
 
-  constructor() { }
-}
+  public readName () {
+	
+      return this._playerName;
+	
+  };
+};

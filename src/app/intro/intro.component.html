@@ -4,14 +4,13 @@
   <form
     class="user_form"
     #playerForm="ngForm"
-    (submit)="verify(playerForm.form)"
+    (submit)="verify(playerForm.form, playerModel)"
   >
     <label>Player name:</label>
     <br />
     <input
       type="text"
       name="player"
-      [(ngModel)]="player"
       #playerModel="ngModel"
       ngModel
       required
