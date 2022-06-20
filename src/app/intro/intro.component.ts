@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-intro',
@@ -12,15 +14,7 @@ export class IntroComponent implements OnInit {
   @Output() public switchPage = new EventEmitter<boolean>()  
 
   public player: string = ''
-  public visibility: boolean = false
 
-  switchVisibility () {
-    this.switchPage.emit(this.visibility)
-  }
-
-  passPlayerName (){
-    this.playerName.emit(this.player)
-  }
 
   public verify(form: FormGroup) {
     const player = form.value.player;
@@ -29,9 +23,14 @@ export class IntroComponent implements OnInit {
 
   buttonTitle:string = "Start game";
 
-  visible:boolean = true;
  
-  constructor() { }
+  constructor(private _router: Router, private _storage: StorageService) { }
+
+  openGame() {
+	
+    this._router.navigate(['/game']);
+
+}
 
   ngOnInit(): void {
   }

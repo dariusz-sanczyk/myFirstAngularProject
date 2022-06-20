@@ -1,4 +1,4 @@
-<body *ngIf="visible">
+<body>
   <h1 class="title">Exclusive Snake Game</h1>
 
   <form
@@ -32,11 +32,7 @@
     <p *ngIf="emailModel.touched && !emailModel.valid">This is required</p>
   </form>
 
-  <button
-    class="button"
-    [disabled]="!playerForm.valid"
-    (click)="passPlayerName(); switchVisibility()"
-  >
+  <button class="button" [disabled]="!playerForm.valid" (click)="openGame()">
     Start Game
   </button>
 </body>

@@ -1,4 +1,7 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from '../storage.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-game-component',
@@ -6,9 +9,6 @@ import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./game-component.component.scss']
 })
 export class GameComponentComponent implements OnInit {
-
-@Output() public switchPage = new EventEmitter<boolean>()
-@Input() nameInGame : string = ''
   
   counter:number = 0;
   time: number = 0;
@@ -16,11 +16,7 @@ export class GameComponentComponent implements OnInit {
   interval: any;
   status: string = 'ready';
 
-  public visibility: boolean = true
-
-  switchVisibility () {
-    this.switchPage.emit(this.visibility)
-  }
+  
 
  startTimer() {
     console.log("=====>");
@@ -67,8 +63,14 @@ export class GameComponentComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(
+    private _router: Router, private _storage: StorageService,
+    private _location: Location ) { }
 
+  goBack() {
+      this._location.back();
+    }
+  
   ngOnInit(): void {
     
   }

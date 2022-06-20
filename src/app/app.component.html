@@ -1,13 +1,3 @@
 <body class="body">
-  <app-intro
-    *ngIf="isVisible"
-    class="intro"
-    (playerName)="passPlayerName($event)"
-    (switchPage)="switchVisibility($event)"
-  ></app-intro>
-  <app-game-component
-    *ngIf="!isVisible"
-    [nameInGame]="namePassedToGame"
-    (switchPage)="switchVisibility($event)"
-  ></app-game-component>
+  <router-outlet></router-outlet>
 </body>
