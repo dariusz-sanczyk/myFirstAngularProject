@@ -3,7 +3,6 @@ import { FormBuilder, Validators, FormControl, FormGroup, FormArray, FormControl
 import { Router } from '@angular/router';
 import { StorageService } from '../storage.service';
 
-console.log("wwwww")
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
@@ -20,6 +19,9 @@ export class IntroComponent implements OnInit  {
       code: ['', [Validators.required, Validators.minLength(5)]]
       
     });
+
+  public get nameGetter() { return this.introForm.get('age') as FormControl };
+  public get codeGetter() { return this.introForm.get('year') as FormControl };
 
   public submit(form: FormGroup) {
     
