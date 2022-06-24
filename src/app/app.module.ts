@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from './storage.service';
 import { ScoresComponent } from './scores/scores.component';
+import { SortPipe } from './sort.pipe';
+
 
 @NgModule({
     declarations: [
@@ -16,6 +18,7 @@ import { ScoresComponent } from './scores/scores.component';
         IntroComponent,
         GameComponentComponent,
         ScoresComponent,
+        SortPipe,
     ],
     imports: [
         BrowserModule,
