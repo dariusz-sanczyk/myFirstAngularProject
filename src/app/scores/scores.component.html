@@ -1,0 +1,7 @@
+<ol class="scores">
+  <li *ngFor="let score of scores">
+    <p>{{ score.name }}</p>
+    <p>{{ score.score }}</p>
+  </li>
+</ol>
+<button class="exit_button" (click)="goBack()">Back to game</button>

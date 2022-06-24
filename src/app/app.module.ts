@@ -8,12 +8,14 @@ import { GameComponentComponent } from './game-component/game-component.componen
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from './storage.service';
+import { ScoresComponent } from './scores/scores.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         IntroComponent,
         GameComponentComponent,
+        ScoresComponent,
     ],
     imports: [
         BrowserModule,
@@ -22,6 +24,7 @@ import { StorageService } from './storage.service';
         RouterModule.forRoot([
             {  path: 'intro', component: IntroComponent },
             {  path: 'game', component: GameComponentComponent },
+            {  path: 'scores', component: ScoresComponent },
             {  path: '**', redirectTo: 'intro' }]),
         HttpClientModule,
         ReactiveFormsModule

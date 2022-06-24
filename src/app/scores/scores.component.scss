@@ -1,0 +1,17 @@
+.scores{
+    max-width: 767px;
+    margin: 0 auto;
+    padding: 0;
+    font-family:'Courier New', Courier, monospace;
+
+    li{
+     display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .5rem 1rem;
+      border-bottom: 1px solid #ddd;
+      &:nth-child(even){
+        background-color: #eee;
+      }
+    }
+  }

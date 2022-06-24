@@ -1,3 +1,10 @@
+.game {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
 .controls {
   text-align: center;
 }
@@ -9,7 +16,7 @@ ngx-snake {
 :host {
   min-height: 500px;
   display: inline-block;
-  width: auto;
+  width: 100%;
   text-align: center;
 
   button {

@@ -14,12 +14,12 @@
     <label>Authetiction code:</label>
     <br />
     <input type="password" formControlName="code" name="code" />
+    <input
+      form="user_form"
+      class="button"
+      [disabled]="!introForm.valid"
+      type="submit"
+      value="start game"
+    />
   </form>
-  <input
-    form="user_form"
-    class="button"
-    [disabled]="!introForm.valid"
-    type="submit"
-    value="start game"
-  />
 </body>

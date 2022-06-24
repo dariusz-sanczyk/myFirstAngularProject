@@ -1,4 +1,4 @@
-<div>
+<div class="game">
   <div>
     <h1>Hello {{ name }}</h1>
     <h1>Game {{ status }}</h1>
@@ -66,7 +66,7 @@
           <td></td>
         </tr>
       </table>
-
+      <button (click)="goToScores()">High Scores</button>
       <button class="exit_button" (click)="goBack()">Exit game</button>
     </div>
   </div>

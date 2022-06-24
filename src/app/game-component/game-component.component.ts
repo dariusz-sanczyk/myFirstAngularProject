@@ -65,6 +65,7 @@ export class GameComponentComponent implements OnInit {
   }
 
   constructor(
+    private _router: Router,
     private _storage: StorageService,
     private _location: Location,
     ) { }
@@ -72,6 +73,10 @@ export class GameComponentComponent implements OnInit {
   goBack() {
       this._location.back();
     }
+  
+  goToScores(){
+    this._router.navigate(['/scores'])
+  }
   
   ngOnInit(): void {
     this.name = this._storage.readName();

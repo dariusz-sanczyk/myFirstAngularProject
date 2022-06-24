@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, Validators, FormControl, FormGroup, FormArray, FormControlName, AbstractControl, ValidationErrors} from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { StorageService } from '../storage.service';
 
@@ -10,9 +10,10 @@ import { StorageService } from '../storage.service';
 })
 export class IntroComponent implements OnInit  {
 
-  public constructor(private _router: Router,
-     private _storage: StorageService,
-     private fb: FormBuilder) { }
+  public constructor(
+    private _router: Router,
+    private _storage: StorageService,
+    private fb: FormBuilder) { }
 
   public introForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
