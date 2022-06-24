@@ -1,14 +1,12 @@
 <label> Sort: </label>
 <select [(ngModel)]="selectSort">
-  <option value="all">All</option>
   <option value="ascending">Ascending</option>
   <option value="descending">Descending</option>
 </select>
 
 <ol class="scores">
   <li *ngFor="let score of scores | sort: scores.length:selectSort">
-    <p>{{ score.name }}</p>
-    <p>{{ score.score }}</p>
+    {{ score.name }}, {{ score.score }}
   </li>
 </ol>
 <button class="exit_button" (click)="goBack()">Back to game</button>

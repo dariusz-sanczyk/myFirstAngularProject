@@ -6,7 +6,7 @@ import { Scores } from './interface/scores';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(list: Array<Scores>, selectedSort: string): Array<Scores>{
+  transform(list: Array<Scores>, listlength: number, selectedSort: string): Array<Scores>{
     
 
     list.sort((a,b) => {return b.score - a.score})

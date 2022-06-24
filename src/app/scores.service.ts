@@ -18,7 +18,7 @@ export class ScoresService {
       headers: new HttpHeaders(head)
     }
 
-    const url = "http://localhost:4600/scores/snake";
+    const url = "http://scores.chrum.it/scores/snake";
 
     return this._http.get<Array<Scores>>(url, requiredOption)
     };

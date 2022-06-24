@@ -11,10 +11,9 @@ import { Location } from '@angular/common';
 export class ScoresComponent implements OnInit {
 
   public scoreList : Array<Scores> = [];
-  public selectSort: string = 'all';
+  public selectSort: string = 'descending';
   public sortScore: string = 'ascending';
-  public selectedFilter: string = "ascending"
-  public selectedSort: string = "all"
+
 
   constructor(
     private _scores: ScoresService,
