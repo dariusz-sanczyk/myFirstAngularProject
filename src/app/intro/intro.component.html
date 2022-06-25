@@ -14,6 +14,15 @@
     <label>Authetiction code:</label>
     <br />
     <input type="password" formControlName="code" name="code" />
+    <br />
+    <label>Select mode:</label>
+    <br />
+    <select formControlName="color">
+      <option *ngFor="let color of colors$" [value]="color">
+        {{ color }}
+      </option>
+    </select>
+    <br />
     <input
       form="user_form"
       class="button"

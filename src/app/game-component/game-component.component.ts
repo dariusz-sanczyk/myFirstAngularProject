@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService } from '../storage.service';
 import { Location } from '@angular/common';
 
@@ -17,6 +17,7 @@ export class GameComponentComponent implements OnInit {
   interval: any;
   status: string = 'ready';
   name: string = ''
+  color: string = ''
 
   
 
@@ -68,7 +69,11 @@ export class GameComponentComponent implements OnInit {
     private _router: Router,
     private _storage: StorageService,
     private _location: Location,
-    ) { }
+    private _route: ActivatedRoute
+    ) {
+      // this.color = this._route.snapshot.params.color;
+     }
+    
 
   goBack() {
       this._location.back();
@@ -80,6 +85,9 @@ export class GameComponentComponent implements OnInit {
   
   ngOnInit(): void {
     this.name = this._storage.readName();
+  //   this._route.params.subscribe(params => {
+  //     this.color = params.color;
+  // });
   }
 
 }

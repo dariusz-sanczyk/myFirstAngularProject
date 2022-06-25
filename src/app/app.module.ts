@@ -27,6 +27,7 @@ import { SortPipe } from './sort.pipe';
         RouterModule.forRoot([
             {  path: 'intro', component: IntroComponent },
             {  path: 'game', component: GameComponentComponent },
+            {  path: 'game/:colors', component: GameComponentComponent},
             {  path: 'scores', component: ScoresComponent },
             {  path: '**', redirectTo: 'intro' }]),
         HttpClientModule,
